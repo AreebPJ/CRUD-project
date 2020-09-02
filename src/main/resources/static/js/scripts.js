@@ -17,8 +17,10 @@ function displayUsers(){
 
                     // adding title to the body of the page
                     let elem = document.createElement('div');
+                    elem.setAttribute("class","container");
+                    elem.setAttribute("class","center");
                     let header = document.createElement('h1');
-                    header.textContent = "Client name: " + el.fName+"."+" " + " "+"ID: " +" " + el.user_id ;
+                    header.textContent = "Client name: " + el.fName+"  "+" " + " "+"ID: " +" " + el.user_id ;
                     elem.appendChild(header);
                     el.fit.forEach(fits => {
                         console.log(fits) // print all fits for each user
