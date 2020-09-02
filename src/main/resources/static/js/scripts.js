@@ -2,7 +2,7 @@ function displayUsers(){
     const req = new XMLHttpRequest();
     req.onreadystatechange = () => {
         // Example handle logic
-        if (req.status === 200 && req.readyState === 4) {
+        if (req.status === 200 && req.readyState == 4) {
             if (req.getResponseHeader("Content-Type") === "application/json") {
                 console.log("oh look its some JSON: " + req.responseText);
                 // adding an element to the body example
@@ -18,14 +18,14 @@ function displayUsers(){
                     // adding title to the body of the page
                     let elem = document.createElement('div');
                     let header = document.createElement('h1');
-                    header.textContent = "User name: " + el.fName;
+                    header.textContent = "Client name: " + el.fName+"."+" " + " "+"ID: " +" " + el.user_id ;
                     elem.appendChild(header);
-                    el.fit.forEach(fit => {
-                        console.log(fit) // print all notes for each notebook
+                    el.fit.forEach(fits => {
+                        console.log(fits) // print all fits for each user
                         let title = document.createElement('p');
                         let description = document.createElement('p');
-                        title.textContent = "Title: " + fit.title;
-                        description.textContent = "Description: " + fit.description;
+                        title.textContent = "Title: " + fits.title;
+                        description.textContent = "Description: " + fits.description;
                         elem.appendChild(title);
                         elem.appendChild(description);
                     })
@@ -44,23 +44,28 @@ function displayUsers(){
     req.send();
 }
 
-// function submitNote(){
-//     let elements = document.getElementById("notesForm").elements;
-//     let obj ={};
-//     for(let i = 0 ; i < elements.length - 1 ; i++){
-//         let item = elements.item(i);
-//         obj[item.name] = item.value;
-//     }
-//
-//     const req = new XMLHttpRequest();
-//     req.open("POST", "http://localhost:8080/createNote");
-//     req.onload = () => {
-//         if (req.status === 200 && req.readyState == 4) {
-//             console.log("Server Responded with: " + req.responseText);
-//         } else {
-//             console.log("Oops...");
-//         }
-//     };
-//     req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//     req.send(JSON.stringify({ title: obj.title, description: obj.description, noteBook:{ id: Number(obj.noteBookId)} }));
-// }
+function submitFit(){
+    let elements = document.getElementById("fitForm").elements;
+    let obj ={};
+    for(let i = 0 ; i < elements.length - 1 ; i++){
+        let item = elements.item(i);
+        obj[item.name] = item.value;
+    }
+
+    const req = new XMLHttpRequest();
+    req.open("POST", "http://localhost:8080/createFit");
+    req.onload = () => {
+        if (req.status === 200 && req.readyState == 4) {
+            console.log("Server Responded with: " + req.responseText);
+        } else {
+            console.log("Oops...");
+        }
+    };
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    req.send(JSON.stringify({
+        title: obj.title,
+        description: obj.description,
+        users:
+            { id: Number(obj.userId)}
+    }));
+}
