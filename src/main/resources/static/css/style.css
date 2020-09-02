@@ -1,0 +1,9 @@
+.index{
+    background-image: url(https://images.unsplash.com/photo-1592588253470-9eb67341e66e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content{
+    text-align: center;
+
+}

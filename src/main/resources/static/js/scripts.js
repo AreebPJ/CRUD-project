@@ -44,6 +44,30 @@ function displayUsers(){
     req.send();
 }
 
+function submitClient(){
+    let elements = document.getElementById("clientForm").elements;
+    let obj ={};
+    for(let i = 0 ; i < elements.length - 1 ; i++){
+        let item = elements.item(i);
+        obj[item.name] = item.value;
+    }
+
+    const req = new XMLHttpRequest();
+    req.open("POST", "http://localhost:8080/createUser");
+    req.onload = () => {
+        if (req.status === 200 && req.readyState == 4) {
+            console.log("Server Responded with: " + req.responseText);
+        } else {
+            console.log("Oops...");
+        }
+    };
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    req.send(JSON.stringify({
+        fName: obj.fName,
+        lName: obj.lName,
+        gender: obj.gender
+    }));
+}
 function submitFit(){
     let elements = document.getElementById("fitForm").elements;
     let obj ={};
@@ -66,6 +90,6 @@ function submitFit(){
         title: obj.title,
         description: obj.description,
         users:
-            { id: Number(obj.userId)}
+            {user_id: Number(obj.userId)}
     }));
 }
