@@ -1,18 +1,49 @@
 # Fundamental Project 
 
 ## BenchMark 
-BenchMark is an application that allows users to keep track of their workouts. How it works is Users will have the ability to create as many workouts as they wish, and can update each workout. The history of each workout is displayed for the user to look back to and lastly the user can delete a workout.    
+
+BenchMark is an application designed for fitness trainers to keep track of their clients. Users will have the ability to add as many clients as they like and record workouts done by each client. Alongside adding users can delete or update a clients details.     
 
 ## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+The objective is to create an application that utilises create, read, update and delete functionality. The project also employs several diffrent concepts such as
+* Project Management
+* Databases
+* Java SE
+* Spring Boot
+* Front-End Development
+* Continuous Integration
+* Cloud Fundamentals
 
-## Prerequisites
-What things you need to install the software and how to install them
+## Requirements 
+There are a minimum set of requirements that were added during the duration of the project. The requirements are: 
+* A Jira board with full expansion on user stories, use cases and tasks needed to complete the project.
+* Documentation from a design phase describing the architecture used for the project.
+* A Risk Assessment created at the beginning of the project.
+* A relational database used to store data for the project.
+* A functional application created in the OOP language.
+* The application must have a functioning front-end website and integrated API.
+* Code fully integrated into a Version Control System
+* Code built through a CI server
+* Application deployed to a cloud-based virtual machine
 
-## Installing
-A step by step series of examples that tell you how to get a development env running
+## Approach 
+To achieve the requirements the benchmark app consists of the following functionality.
+* Create a client. Whcih stores
+  * user_id
+  * First Name
+  * Last Name
+  * Gender
+* Create a workout. Which stores 
+  * Title of the workout (e.g benchpress)
+  * Description of the workout.
+* View all clients and workouts.
+* Delete a clients details.
+* Update a client details.
+  
 
-## Documentation
+## Architecture
+### Database Structure 
+
 
   ### Use Case Diagrams
 
@@ -22,9 +53,7 @@ A step by step series of examples that tell you how to get a development env run
 
 ## Risk assesment
 
-## Testing 
-**Running the tests**
-Explain how to run the automated tests for this system
+
 
 ## Deployment
 Add additional notes about how to deploy this on a live system
