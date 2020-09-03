@@ -18,7 +18,8 @@ function displayUsers(){
                     // adding title to the body of the page
                     let elem = document.createElement('div');
                     elem.setAttribute("class","container");
-                    elem.setAttribute("class","center");
+                    let button = document.createElement("button")
+                    // elem.setAttribute("class","center");
                     let header = document.createElement('h1');
                     header.textContent = "Client name: " + el.fName+"  "+" " + " "+"ID: " +" " + el.user_id ;
                     elem.appendChild(header);
@@ -93,5 +94,78 @@ function submitFit(){
         description: obj.description,
         users:
             {user_id: Number(obj.userId)}
+    }));
+}
+function findUserById(id){
+    let cid = document.getElementById("client_id");
+    const req = new XMLHttpRequest();
+    req.onreadystatechange = () => {
+        // Example handle logic
+        if (req.status === 200 && req.readyState == 4) {
+            if (req.getResponseHeader("Content-Type") === "application/json") {
+                console.log("oh look its some JSON: " + req.responseText);
+
+                let stuff = JSON.parse(req.response);
+                stuff.forEach(el => {
+
+                    // console.log(el); // prints whole element
+                    // console.log(el.name); // allows access to specific value
+                    if (el.user_id === cid.value()){
+                        let elem = document.createElement('div');
+                        elem.setAttribute("class","container");
+                        let header = document.createElement('h1');
+                        header.textContent = "Client name: " + el.fName+"  "+" " + " "+"ID: " +" " + el.user_id ;
+                        elem.appendChild(header);
+
+                        el.fit.forEach(fits => {
+                            console.log(fits) // print all fits for each user
+                            let title = document.createElement('p');
+                            let description = document.createElement('p');
+                            title.textContent = "Title: " + fits.title;
+                            description.textContent = "Description: " + fits.description;
+                            elem.appendChild(title);
+                            elem.appendChild(description);
+                        })
+                        document.body.appendChild(elem);
+                    } else{
+                        console.log("Error");
+
+                    }
+                    });
+            } else {
+                console.log(
+                    "Looks like its not JSON but lets see what it is... " + req.responseText
+                );
+            }
+        } else {
+            console.log("Oh no... handle error");
+        }
+    };
+    req.open("GET", "http://localhost:8080//getUserById/{id}");
+    req.send();
+}
+function updateClient(){
+    let elements = document.getElementById("updateForm").elements;
+    let upd = {};
+    for(let i = 0 ; i < elements.length - 1 ; i++){
+        let item = elements.item(i);
+        upd[item.name] = item.value;
+    }
+    const URL = "http://localhost:8080/updateUser/" + upd.uid;
+
+    const req = new XMLHttpRequest();
+    req.open("PUT", URL);
+    req.onload = () => {
+        if (req.status === 200 && req.readyState == 4) {
+            console.log("Server Responded with: " + req.responseText);
+        } else {
+            console.log("Oops...");
+        }
+    };
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    req.send(JSON.stringify({
+        fName: upd.fName,
+        lName: upd.lName,
+        gender: upd.gender
     }));
 }

@@ -39,4 +39,10 @@ h1{
 .navbar{
     margin-bottom: 40px;
 }
+.hpnav:hover {
+    background-color: aliceblue;
+
+
+}
+
 

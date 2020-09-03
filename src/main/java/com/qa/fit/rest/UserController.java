@@ -22,30 +22,27 @@ public class UserController {
     public ResponseEntity<List<UsersDTO>> getAllUsers(){
         return  ResponseEntity.ok( this.uService.readAllUsers());
     }
+
     @PostMapping("/createUser")
     public ResponseEntity<UsersDTO> createUser(@RequestBody Users users){
         return new ResponseEntity<UsersDTO>(this.uService.createUser(users), HttpStatus.CREATED);
 
     }
 
-    @DeleteMapping("/deleteUser{id}")
+    @DeleteMapping("/deleteUser/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id){
         return this.uService.deleteUserById(id)
                 ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
                 : ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/getUserById{id}")
+    @GetMapping("/getUserById/{id}")
     public ResponseEntity<UsersDTO> getUserById(@PathVariable Long id){
         return ResponseEntity.ok( this.uService.findUserById(id));
     }
 
-    @PutMapping("/updateUser{id}")
+    @PutMapping("/updateUser/{id}")
     public ResponseEntity<UsersDTO> updateUser(@PathVariable Long id, @RequestBody Users users){
         return ResponseEntity.ok(this.uService.updateUser(id, users));
     }
-
-
-
-
 }
