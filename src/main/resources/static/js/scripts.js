@@ -169,3 +169,23 @@ function updateClient(){
         gender: upd.gender
     }));
 }
+function deleteClient(){
+    let elements = document.getElementById("DeleteForm").elements;
+    let del = {};
+    for(let i = 0 ; i < elements.length - 1 ; i++){
+        let item = elements.item(i);
+        del[item.name] = item.value;
+    }
+    const URL = "http://localhost:8080/deleteUser/" + del.uid;
+
+    const req = new XMLHttpRequest();
+    req.open("DELETE", URL);
+    req.onload = () => {
+        if (req.status === 200 && req.readyState == 4) {
+            console.log("Server Responded with: " + req.responseText);
+        } else {
+            console.log("Oops...");
+        }
+    };
+    req.send();
+}
