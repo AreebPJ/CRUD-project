@@ -43,16 +43,12 @@ To achieve the requirements the benchmark app consists of the following function
 
 ## Architecture
 ### Database Structure 
+![ERD](https://user-images.githubusercontent.com/47117365/92161573-b7531780-ee28-11ea-8c6e-6f7963d4b676.png)
+As can be seen in the entity relatoinship diagram there is a one to many relationship between the CLient table and the workout table. This states that a single user can have multiple workouts, wheras a workout has to lead back to a single user.  
+
+## Project Planning
 
 
-
-
-
-  ### Use Case Diagrams
-
-  ### User Story Boards
-
-  ### ERD's
 
 ## Risk assesment
 
@@ -61,7 +57,7 @@ To achieve the requirements the benchmark app consists of the following function
 ## Deployment
 Add additional notes about how to deploy this on a live system
 
-## Project Planning
+
 
 ## Authors
 Areeb Panjwani.
