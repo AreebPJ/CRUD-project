@@ -43,7 +43,9 @@ To achieve the requirements the benchmark app consists of the following function
 
 ## Architecture
 ### Database Structure 
-![ERD](https://github.com/AreebPJ/CRUD-project/src/main/resources/static/images/Screenshot from 2020-09-03 20-36-44.png?raw=true)
+
+
+
 
 
   ### Use Case Diagrams
