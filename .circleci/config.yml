@@ -1,28 +1,28 @@
 version: 2.1
 jobs:
-test:
-  machine:
-    enabled: true
-  steps:
-    - run: echo "Tests can run here!"
-deploy:
-  machine:
-    enabled: true
-  steps:
-    - run:
-        name: Install jdk & maven
-        command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y git && sudo apt-get install -y openjdk-8-jdk && sudo apt-get install -y maven"
-    - run:
-        name: Clone Repo & Install Application Dependencies
-        command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/AreebPJ/CRUD-project && cd ~/CRUD-project && mvn install"
-    - run:
-        name: Deploy Application
-        command: ssh $SSH_USER@$SSH_HOST "cd ~/CRUD-project && mvn clean install && mvn spring-boot:run "
+  test:
+    machine:
+      enabled: true
+    steps:
+      - run: echo "Tests can run here!"
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Install jdk & maven
+          command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y git && sudo apt-get install -y openjdk-8-jdk && sudo apt-get install -y maven"
+      - run:
+          name: Clone Repo & Install Application Dependencies
+          command: ssh $SSH_USER@$SSH_HOST "git clone https://github.com/AreebPJ/CRUD-project && cd ~/CRUD-project && mvn install"
+      - run:
+          name: Deploy Application
+          command: ssh $SSH_USER@$SSH_HOST "cd ~/CRUD-project && mvn clean install && mvn spring-boot:run "
 workflows:
-version: 2.1
-test-and-deploy:
-  jobs:
-    - test
-    - deploy:
-        requires:
-          - test
+  version: 2.1
+  test-and-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
