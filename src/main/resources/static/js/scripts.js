@@ -46,7 +46,7 @@ function displayUsers(){
             console.log("Oh no... handle error");
         }
     };
-    req.open("GET", "34.105.155.158:8080//getAllUsers");
+    req.open("GET", "http://localhost:8080/getAllUsers");
     req.send();
 }
 
@@ -59,7 +59,7 @@ function submitClient(){
     }
 
     const req = new XMLHttpRequest();
-    req.open("POST", "34.105.155.158:8080/createUser");
+    req.open("POST", "http://localhost:8080/createUser");
     req.onload = () => {
         if (req.status === 200 && req.readyState == 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -83,7 +83,7 @@ function submitFit(){
     }
 
     const req = new XMLHttpRequest();
-    req.open("POST", "34.105.155.158:8080/createFit");
+    req.open("POST", "http://localhost:8080/createFit");
     req.onload = () => {
         if (req.status === 200 && req.readyState == 4) {
             console.log("Server Responded with: " + req.responseText);
@@ -144,7 +144,7 @@ function findUserById(){
             console.log("Oh no... handle error");
         }
     };
-    req.open("GET", "34.105.155.158:8080//getUserById/{id}");
+    req.open("GET", "http://localhost:8080/getUserById/{id}");
     req.send();
 }
 function updateClient(){
@@ -154,7 +154,7 @@ function updateClient(){
         let item = elements.item(i);
         upd[item.name] = item.value;
     }
-    const URL = "34.105.155.158:8080/updateUser/" + upd.uid;
+    const URL = "http://localhost:8080/updateUser/" + upd.uid;
 
     const req = new XMLHttpRequest();
     req.open("PUT", URL);
@@ -179,7 +179,7 @@ function deleteClient(){
         let item = elements.item(i);
         del[item.name] = item.value;
     }
-    const URL = "34.105.155.158:8080/deleteUser/" + del.uid;
+    const URL = "http://localhost:8080/deleteUser/" + del.uid;
 
     const req = new XMLHttpRequest();
     req.open("DELETE", URL);
@@ -199,7 +199,7 @@ function deleteFit(){
         let item = elements.item(i);
         delfit[item.name] = item.value;
     }
-    const URL = "34.105.155.158:8080/delete/" + delfit.fid;
+    const URL = "http://localhost:8080/delete/" + delfit.fid;
 
     const req = new XMLHttpRequest();
     req.open("DELETE", URL);
