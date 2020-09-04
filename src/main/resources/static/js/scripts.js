@@ -18,7 +18,7 @@ function displayUsers(){
                     // adding title to the body of the page
                     let elem = document.createElement('div');
                     elem.setAttribute("class","container");
-                    let button = document.createElement("button")
+
                     // elem.setAttribute("class","center");
                     let header = document.createElement('h1');
                     header.textContent = "Client name: " + el.fName+"  "+" " + " "+"ID: " +" " + el.user_id ;
@@ -27,10 +27,13 @@ function displayUsers(){
                         console.log(fits) // print all fits for each user
                         let title = document.createElement('p');
                         let description = document.createElement('p');
+                        let id = document.createElement('p');
+                        id.textContent = "ID:" + fits.id;
                         title.textContent = "Title: " + fits.title;
                         description.textContent = "Description: " + fits.description;
                         elem.appendChild(title);
                         elem.appendChild(description);
+                        elem.appendChild(id);
                     })
                     document.body.appendChild(elem);
                 });
@@ -177,6 +180,26 @@ function deleteClient(){
         del[item.name] = item.value;
     }
     const URL = "http://localhost:8080/deleteUser/" + del.uid;
+
+    const req = new XMLHttpRequest();
+    req.open("DELETE", URL);
+    req.onload = () => {
+        if (req.status === 200 && req.readyState == 4) {
+            console.log("Server Responded with: " + req.responseText);
+        } else {
+            console.log("Oops...");
+        }
+    };
+    req.send();
+}
+function deleteFit(){
+    let elements = document.getElementById("DeleteFit").elements;
+    let delfit = {};
+    for(let i = 0 ; i < elements.length - 1 ; i++){
+        let item = elements.item(i);
+        delfit[item.name] = item.value;
+    }
+    const URL = "http://localhost:8080/delete/" + delfit.fid;
 
     const req = new XMLHttpRequest();
     req.open("DELETE", URL);

@@ -39,11 +39,8 @@ public class FitController {
     public ResponseEntity<FitDTO> getFitById(@PathVariable Long id){
         return ResponseEntity.ok(this.fitService.findFitById(id));
     }
-    @PutMapping("/updateFit{id}")
+    @PutMapping("/updateFit/{id}")
     public ResponseEntity<FitDTO> updateFit(@PathVariable Long id, @RequestBody Fit fit){
         return ResponseEntity.ok(this.fitService.updateFit(id, fit));
     }
-
-
-
 }
