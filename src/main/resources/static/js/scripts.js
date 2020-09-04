@@ -27,13 +27,13 @@ function displayUsers(){
                         console.log(fits) // print all fits for each user
                         let title = document.createElement('p');
                         let description = document.createElement('p');
-                        let id = document.createElement('p');
-                        id.textContent = "ID:" + fits.id;
+                        let fid = document.createElement('p');
                         title.textContent = "Title: " + fits.title;
                         description.textContent = "Description: " + fits.description;
+                        fid.textContent = "ID:" + fits.id;
                         elem.appendChild(title);
                         elem.appendChild(description);
-                        elem.appendChild(id);
+                        elem.appendChild(fid);
                     })
                     document.body.appendChild(elem);
                 });
@@ -99,7 +99,7 @@ function submitFit(){
             {user_id: Number(obj.userId)}
     }));
 }
-function findUserById(id){
+function findUserById(){
     let cid = document.getElementById("client_id");
     const req = new XMLHttpRequest();
     req.onreadystatechange = () => {
