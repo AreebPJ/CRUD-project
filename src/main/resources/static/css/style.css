@@ -49,7 +49,7 @@ h1{
     /* IE8 and below */
     background: rgb(200, 54, 54);
     /* all other browsers */
-    background: rgba(200, 54, 54, 0.7);
+    background: rgba(200, 54, 54, 0.5);
 }
 .suin{
     align-items: center;
@@ -63,6 +63,6 @@ h1{
     border-radius: 40px;
     background: rgb(200, 54, 54);
     /* all other browsers */
-    background: rgba(200, 54, 54, 0.5);
+    background: rgba(200, 54, 54, 0.7);
 
 }
