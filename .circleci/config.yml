@@ -9,9 +9,9 @@ jobs:
     machine:
       enabled: true
     steps:
-#       - run:
-#           name: Delete previous repo
-#           command: ssh $SSH_USER@$SSH_HOST "rm -r CRUD-project"
+      - run:
+          name: Delete previous repo
+          command: ssh $SSH_USER@$SSH_HOST "rm -r CRUD-project"
       - run:
           name: Install jdk & maven
           command: ssh $SSH_USER@$SSH_HOST "sudo apt-get update && sudo apt-get install -y git && sudo apt-get install -y openjdk-8-jdk && sudo apt-get install -y maven"
