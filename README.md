@@ -56,17 +56,18 @@ When a sprint has started it will appear on the board which is divided into thre
 The agile project management tool was helpful for keeping track of the entire development process and was an essential part of the project.
 
 
-
 ## Risk assesment
-
+![Risk Assessment](https://user-images.githubusercontent.com/47117365/92334670-267a7700-f088-11ea-80fb-e986b53f81d8.png)
 ## Front-end Structure
+![StoryBoard](https://user-images.githubusercontent.com/47117365/92334664-21b5c300-f088-11ea-95a8-3e3162c22583.png) <br>
+Pictured above is the structure of the front end web pages. The home page is where the all the data is displayed and consists of all the links to the other pages. The story boards above provide an insight into all the diffrent pages, and the data that is taken in. The remainder of the links do consists of links to navigate through the website. These are just not shown in the storyboards above.
+
 
 ## Future improvements 
-
-
-
-## Deployment
-Add additional notes about how to deploy this on a live system
+There are a number of improvements I would like to implement
+* Functinality for searching a user by name.
+* Better presentation of displaying all data.
+* Add fields in some of the tables to display and track more data.
 
 
 
