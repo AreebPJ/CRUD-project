@@ -18,11 +18,20 @@ function displayUsers(){
                     // adding title to the body of the page
                     let elem = document.createElement('div');
                     elem.setAttribute("class","container");
+                    //elem.setAttribute("class","color");
+                    let aelem = document.createElement('div');
+                    aelem.setAttribute("class","row");
+                    let belem = document.createElement('div');
+                    belem.setAttribute("class","col-lg-12");
+                    let celem = document.createElement('div');
+                    celem.setAttribute("class","suin");
+                    elem.appendChild(aelem);
+                    aelem.appendChild(belem);
+                    belem.appendChild(celem);
 
-                    // elem.setAttribute("class","center");
                     let header = document.createElement('h1');
                     header.textContent = "Client name: " + el.fName+"  "+" " + " "+"ID: " +" " + el.user_id ;
-                    elem.appendChild(header);
+                    celem.appendChild(header);
                     el.fit.forEach(fits => {
                         console.log(fits) // print all fits for each user
                         let title = document.createElement('p');
@@ -31,9 +40,9 @@ function displayUsers(){
                         title.textContent = "Title: " + fits.title;
                         description.textContent = "Description: " + fits.description;
                         fid.textContent = "ID:" + fits.id;
-                        elem.appendChild(title);
-                        elem.appendChild(description);
-                        elem.appendChild(fid);
+                        celem.appendChild(title);
+                        celem.appendChild(description);
+                        celem.appendChild(fid);
                     })
                     document.body.appendChild(elem);
                 });

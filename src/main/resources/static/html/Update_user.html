@@ -10,7 +10,7 @@
 
 </head>
 <body class="adduser">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><img src="../images/bmlogo.jpg" alt="logo" width="20%" height="20%"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,20 +19,36 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link " href="Homepage.html">Home <span class="sr-only">(current)</span></a>
+                <a  class="nav-link hpnav "style="color: black"  href="Homepage.html">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " href="Add_fit.html">Add Workout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Add_user.html">New Client</a>
+            <li class="nav-item dropdown">
+                <a style="color: black" class="nav-link dropdown-toggle" href="#" id="navbarDrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Add
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDrop">
+                    <a class="dropdown-item" href="Add_user.html">New Client</a>
+                    <a class="dropdown-item" href="Add_fit.html">Add Workout</a>
+                </div>
             </li>
 
+            <li class="nav-item">
+                <a  class="nav-link hpnav"style="color: black" href="Update_user.html">Edit Client</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a style="color: black" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Delete
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="Delete_user.html">Remove Client</a>
+                    <a class="dropdown-item" href="Delete_fit.html">Remove Workout</a>
+
+                </div>
+            </li>
 
         </ul>
-
     </div>
 </nav>
+<!-- nav ends here -->
 <div class="bgContainer">
 
     <img src="../images/bmlogo.jpg">
